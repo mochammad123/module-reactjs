@@ -1,13 +1,11 @@
-import React from 'react'
-import Header from '../../main/headers/Header'
-import Sidebar from '../../main/sidebars/Sidebar'
-import { Outlet } from 'react-router-dom'
+import Header from "../../main/headers/Header";
+import Sidebar from "../../main/sidebars/Sidebar";
+import { Navigate, Outlet } from "react-router-dom";
 
 const MainDashboard = () => {
-    const token = localStorage.getItem("token")
+  const token = localStorage.getItem("token");
 
-
-  return (
+  return token ? (
     <div className="wrapper">
       <Header />
       <Sidebar />
@@ -16,7 +14,9 @@ const MainDashboard = () => {
       </div>
       {/* <Footers /> */}
     </div>
-  )
-}
+  ) : (
+    <Navigate to="/" />
+  );
+};
 
-export default MainDashboard
+export default MainDashboard;

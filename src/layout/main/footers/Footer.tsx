@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Footer = () => {
   return (
     <footer className="main-footer z-10">
@@ -10,7 +8,7 @@ const Footer = () => {
         <b>Version</b> 1.0
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

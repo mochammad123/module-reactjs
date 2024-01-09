@@ -2,17 +2,17 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 interface User {
-  email : string,
-  password: string
+  email: string;
+  password: string;
 }
 
-interface Initial {
-  user: string,
-  isError: boolean,
-  isSuccess: boolean,
-  isLoading: boolean,
-  message: string
-}
+// interface Initial {
+//   user: string,
+//   isError: boolean,
+//   isSuccess: boolean,
+//   isLoading: boolean,
+//   message: string
+// }
 
 const initialState = {
   user: null,
@@ -24,10 +24,10 @@ const initialState = {
 
 export const LoginUser = createAsyncThunk(
   "user/LoginUser",
-  async (user : User, thunkAPI) => {
+  async (user: User, thunkAPI) => {
     try {
       const response = await axios.post("http://localhost:5000/login", {
-        email : user.email,
+        email: user.email,
         password: user.password,
       });
       return response.data;
@@ -60,7 +60,7 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    reset: (state) => initialState,
+    reset: () => initialState,
   },
   extraReducers: (builder) => {
     builder.addCase(LoginUser.pending, (state) => {
